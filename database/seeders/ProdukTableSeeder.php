@@ -15,8 +15,8 @@ class ProdukTableSeeder extends Seeder
     public function run()
     {
         Produk::create([
-            'nama_produk' => 'Sabun',
-            'hargajual_produk' => 2000,
+            'nama_produk' => 'Sampo',
+            'hargajual_produk' => 3000,
         ]);
     }
 }
