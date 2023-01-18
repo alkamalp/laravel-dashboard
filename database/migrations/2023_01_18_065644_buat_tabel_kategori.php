@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UbahKolomTabelProduk extends Migration
+class BuatTabelKategori extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class UbahKolomTabelProduk extends Migration
      */
     public function up()
     {
-        Schema::table('barang', function(Blueprint $table){
-            $table->dropColumn('hargabeli_produk');
+        Schema::create('kategori', function (Blueprint $table){
+            $table->increments('id_kategori');
+            $table->string('nama_kategori',100);
+            $table->timestamps();
         });
     }
 
@@ -25,6 +27,6 @@ class UbahKolomTabelProduk extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('kategori');
     }
 }

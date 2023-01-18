@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UbahTipekolomBarang extends Migration
+class BuatTabelPengeluaran extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class UbahTipekolomBarang extends Migration
      */
     public function up()
     {
-        Schema::table('produk', function (Blueprint $table) {
-            $table->integer('hargajual_produk')->change();
+        Schema::create('pengeluaran', function (Blueprint $table){
+            $table->increments('id_pengeluaran');            
+            $table->text('jenis_pengeluaran');
+            $table->bigInteger('nominal')->unsigned();
+            $table->timestamps();
         });
     }
 
@@ -25,6 +28,6 @@ class UbahTipekolomBarang extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('pengeluaran');
     }
 }
