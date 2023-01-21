@@ -6,13 +6,13 @@ function terbilang($angka){
     if ($angka <12){
         $terbilang = " ". $baca[$angka];
     } else if ($angka <20){
-        $terbilang = $terbilang($angka - 10). " belas";
+        $terbilang = terbilang($angka - 10). " belas";
     } else if ($angka <100){
-        $terbilang = $terbilang($angka/10). " puluh".terbilang($angka%10);
+        $terbilang = terbilang($angka/10). " puluh".terbilang($angka%10);
     } else if ($angka <200){
         $terbilang = " seratus" .terbilang($angka - 100);
     } else if ($angka <1000){
-        $terbilang = $terbilang($angka/100). " ratus".terbilang($angka%100);
+        $terbilang = terbilang($angka/100). " ratus".terbilang($angka%100);
     } else if ($angka <2000){
         $terbilang = " seribu" .terbilang($angka - 1000);
     } else if ($angka <1000000){

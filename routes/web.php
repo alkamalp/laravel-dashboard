@@ -22,11 +22,21 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('produk/list', function () {
-//     $produk = DB::table('produk')->get();
-//     foreach ($produk as $data){
-//         echo $data->id_produk.". ".$data->nama_produk." - Rp".$data->hargajual_produk."<br>"; 
-//     }
+//Testing CekUser Middleware
+Route::group(['middleware' => ['web', 'cekuser:1']],
+function(){
+    //
+});
+
+// Testing Helpers
+// Route::get('tanggal', function(){
+//     echo tanggal_indonesia(date('Y-m-d'));
 // });
 
-// Route::resource('produk', ProdukController::class);
+// Route::get('uang', function(){
+//     echo "Rp. ". format_uang(1250000000);
+// });
+
+// Route::get('terbilang', function(){
+//     echo ucwords(terbilang(12578600));
+// });

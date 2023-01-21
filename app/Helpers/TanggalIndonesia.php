@@ -11,7 +11,7 @@ function tanggal_indonesia($tgl, $tampil_hari=true){
     
     if($tampil_hari){
         $urutan_hari = date('w', mktime(0,0,0, substr($tgl,5,2),$tanggal, $tahun));
-        $hari = $nama_hari($urutan_hari);
+        $hari = $nama_hari[$urutan_hari];
         $text .= $hari.", ";
     }
 
