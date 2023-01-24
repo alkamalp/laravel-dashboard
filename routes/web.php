@@ -25,7 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Testing CekUser Middleware
 Route::group(['middleware' => ['web', 'cekuser:1']],
 function(){
-    //
+    Route::get('kategori/data', 'KategoriController@listData')->name('kategori.data');
+    Route::resource('kategori', 'KategoriController');
+    // Route kategori, perlu use kategori controller belum buat
+    // Route::resource('kategori', KategoriController::class);
 });
 
 // Testing Helpers
